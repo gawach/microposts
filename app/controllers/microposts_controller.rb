@@ -16,6 +16,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
+    @micrposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
     flash[:success] = 'メッセージを削除しました'
     redirect_back(fallback_location: root_path)
   end
