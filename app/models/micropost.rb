@@ -5,5 +5,4 @@ class Micropost < ApplicationRecord
   
   has_many :favorites
   has_many :users, through: :favorites, source: :user
-  has_many :favorited, through: :favorites, source: :user
 end
